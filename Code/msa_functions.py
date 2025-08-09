@@ -131,42 +131,42 @@ def process_alignment(aligned_path, block_size=20):
             num_windows = min_len - block_size + 1
             norm_perfect = num_perfect / num_windows if num_windows > 0 else 0
 
-              result = {
-                # The name of the aligned FASTA file being analyzed, e.g. "GC_00000990_aligned.fasta".
-                'filename': os.path.basename(file_path),
+            result = {
+            # The name of the aligned FASTA file being analyzed, e.g. "GC_00000990_aligned.fasta".
+            'filename': os.path.basename(file_path),
                 
-                #The minimum sequence length among the sequences in the alignment.
-                'alignment_length': min_len,
+            #The minimum sequence length among the sequences in the alignment.
+            'alignment_length': min_len,
 
-                # The maximum number of zeroes in any consensus column in the alignment.
-                'max_zeroes': int(max_val),
+            # The maximum number of zeroes in any consensus column in the alignment.
+            'max_zeroes': int(max_val),
 
-                # The average number of zeroes per consensus matrix column (across the alignment).
-                'mean_zeroes': float(mean_val),
+            # The average number of zeroes per consensus matrix column (across the alignment).
+            'mean_zeroes': float(mean_val),
 
-                # The variance of zero counts across the matrix.
-                'variance_zeroes': float(var_val),
+            # The variance of zero counts across the matrix.
+            'variance_zeroes': float(var_val),
 
-                # The number of contiguous blocks of length 76 base pairs with all-zero consensus values.
-                'count_76_zero_blocks': int(count_76),
+            # The number of contiguous blocks of length 76 base pairs with all-zero consensus values.
+            'count_76_zero_blocks': int(count_76),
 
-                # The total number of perfectly conserved 20-mers (regions with no sequence variation across all strains).
-                'num_perfect_matches': int(num_perfect),
+            # The total number of perfectly conserved 20-mers (regions with no sequence variation across all strains).
+            'num_perfect_matches': int(num_perfect),
 
-                # The longest distance (in bp) between any two conserved 20-mer regions.
-                'max_dist_between_matches': int(max_distance),
+            # The longest distance (in bp) between any two conserved 20-mer regions.
+            'max_dist_between_matches': int(max_distance),
 
-                # This is a normalized count of perfect 20-mers, scaled by alignment length. 
-                'normalized_perfect_match_rate': round(norm_perfect, 4),
+            # This is a normalized count of perfect 20-mers, scaled by alignment length. 
+            'normalized_perfect_match_rate': round(norm_perfect, 4),
 
-                #  Lowest similarity between any two strains.
-                'min_percent_identity': round(min_id, 2),
+            #  Lowest similarity between any two strains.
+            'min_percent_identity': round(min_id, 2),
 
-                # Highest similarity between any two strains.
-                'max_percent_identity': round(max_id, 2),
+            # Highest similarity between any two strains.
+            'max_percent_identity': round(max_id, 2),
 
-                # Mean similarity across all pairwise comparisons.
-                'avg_percent_identity': round(avg_id, 2)
+            # Mean similarity across all pairwise comparisons.
+            'avg_percent_identity': round(avg_id, 2)
             }
 
             all_results.append(result)
